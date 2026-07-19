@@ -11,11 +11,21 @@ const options = {
   initialState,
   reducers: {
     // Task 1: Create an `addPhoto()` case reducer that adds a photo to state.photos.
-    // Task 1 Hint: You can use state.photos.unshift()
+    // Task 1 Hint: You can use state.photos.unshift() 
     // `unshift()` documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+    addPhoto: (state, action) => {
+      state.photos.unshift({ id:state.photos.length + 1, photo: action.payload})
+    },
+   
     // Task 6: Create an `removePhoto()` case reducer that removes a photo from state.photos
     // Task 6 Hint: You can use state.photos.splice()
     // `splice()` documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+    removePhoto: (state, action) => {
+      state.photos.splice(
+        state.photos.findIndex((photo) => photo.id === action.payload),
+      )
+    },
+    
     // Task 22: Create a `toggleFavorite()` case reducer that toggles the isFavorite property of a photo
     // Task 22 Hint: Find the photo by id in state.photos and toggle its isFavorite boolean value
     // The action payload will contain the id of the photo to toggle
