@@ -28,7 +28,7 @@ const options = {
       state.loading = true;
       state.error = false;
     },
-    [fetchSuggestion.fulfilled]: (state, { payload: { suggestion, photo }}) => {
+    [fetchSuggestion.fulfilled]: (state, { payload: { imageUrl, caption }}) => {
       state.suggestion = { imageUrl, caption };
       state.loading = false;
       state.error = false;
